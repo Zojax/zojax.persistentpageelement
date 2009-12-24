@@ -1,0 +1,64 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:i18n="http://namespaces.zope.org/i18n"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   i18n_domain="zojax.persistentpageelement">
+
+  <!-- page element -->
+  <zojax:content
+     title="Page Element"
+     name="persistent.pageelement"
+     class=".element.PageElement"
+     schema=".interfaces.IPersistentPageElement"
+     containers="persistent.pageelements"
+     permission="zojax.Configure" />
+
+  <class class=".element.PageElement">
+    <require
+       permission="zope.Public"
+       attributes="errors source description"
+       interface="zojax.pageelement.interfaces.IPageElement" />
+    <require
+       permission="zojax.Configure"
+       set_schema=".interfaces.IPersistentPageElement" />
+  </class>
+
+  <subscriber handler=".element.pageElementMoved" />
+
+  <!-- container -->
+  <zojax:content
+     title="Page Elements"
+     name="persistent.pageelements"
+     class=".configlet.PageElementsConfiglet"
+     schema=".interfaces.IPageElementsConfiglet"
+     contains="persistent.pageelement"
+     type="zojax.content.type.interfaces.IInactiveType" />
+
+  <!-- configlet -->
+  <zojax:configlet
+     name="ui.pageelements"
+     title="Page Elements"
+     description="Portal page elements."
+     class=".configlet.PageElementsConfiglet"
+     schema=".interfaces.IPageElementsConfiglet">
+    <require
+       permission="zope.View"
+       interface="zojax.content.type.interfaces.IItem
+		  zope.app.container.interfaces.IReadContainer" />
+    <require
+       permission="zojax.Configure"
+       interface="zope.app.container.interfaces.IWriteContainer" />
+  </zojax:configlet>
+
+  <class class=".configlet.PageElementsConfiglet">
+    <implements interface="zojax.content.type.interfaces.IEmptyNamesNotAllowed" />
+    <implements interface="zojax.content.type.interfaces.IContainerContentsAware" />
+  </class>
+
+  <!-- browser views -->
+  <include package=".browser" />
+
+  <!-- translations -->
+  <i18n:registerTranslations directory="locales"/>
+
+</configure>

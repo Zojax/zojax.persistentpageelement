@@ -1,0 +1,55 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   i18n_domain="zojax.persistentpageelement">
+
+  <!-- Configlet -->
+  <browser:defaultView
+     name="context.html"
+     for="..interfaces.IPageElementsConfiglet" />
+
+  <adapter
+     for="..interfaces.IPageElementsConfiglet *"
+     factory="zojax.controlpanel.browser.breadcrumb.ConfigletBreadcrumb" />
+
+  <!-- page element -->
+  <zojax:pagelet
+     name="index.html"
+     for="zojax.content.persistent_pageelement"
+     class=".element.AddPageElementForm"
+     permission="zojax.Configure" />
+
+  <browser:defaultView
+     name="context.html"
+     for="..interfaces.IPersistentPageElement" />
+
+  <zojax:pagelet
+     name="view"
+     title="View"
+     type="wizard.step"
+     for="..interfaces.IPersistentPageElement
+	  zojax.content.forms.interfaces.IEditContentWizard"
+     template="element.pt"
+     class="zojax.wizard.step.WizardStep"
+     provides="zojax.layoutform.interfaces.IPageletFormView"
+     permission="zope.View"
+     weight="10" />
+
+  <zojax:pagelet
+     name="basic"
+     type="form.subform"
+     for="..interfaces.IPersistentPageElement
+	  zojax.content.forms.interfaces.IContentStep"
+     class=".element.EditPageElementForm"
+     permission="zojax.Configure"
+     weight="100" />
+
+  <adapter
+     name="cancel"
+     provides="zojax.wizard.interfaces.IWizardButton"
+     for="..interfaces.IPersistentPageElement
+	  zojax.content.forms.interfaces.IEditContentWizard *"
+     factory=".element.backButton" />
+
+</configure>

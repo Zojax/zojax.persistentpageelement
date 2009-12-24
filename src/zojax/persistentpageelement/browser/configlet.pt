@@ -1,0 +1,7 @@
+<div class="z-topframe">
+  <h1 tal:content="context/__title__"></h1>
+  <div class="z-page-description" tal:content="context/__description__"></div>
+
+  <tal:block tal:content="structure view/table/render" />
+
+</div>
