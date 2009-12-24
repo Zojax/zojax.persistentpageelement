@@ -1,0 +1,10 @@
+<div class="portalStopMessage" tal:condition="python:context.errors" 
+     i18n:domain="zojax.persistentpageelement">
+  <tal:block i18n:translate="">Compilation failed:</tal:block>
+  <tal:block tal:content="python:context.errors[0]" /><br />
+  <tal:block tal:on-error="nothing" tal:content="python:str(context.errors[1])" />
+</div>
+
+<br />
+<pre tal:content="python:context.source"></pre>
+<br />

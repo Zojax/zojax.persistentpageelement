@@ -1,0 +1,76 @@
+=======================
+Persistent Page Element
+=======================
+
+    >>> from zope import component, interface
+    >>> from zope.testbrowser.testing import Browser
+    >>> from zope.app.testing.functional import getRootFolder
+    >>> from zope.app.component.hooks import setSite
+    >>> from zojax.persistentpageelement.interfaces import IPersistentPageElement
+    >>> from zojax.persistentpageelement.interfaces import IPageElementsConfiglet
+
+    >>> root = getRootFolder()
+    >>> setSite(root)
+
+    >>> admin = Browser()
+    >>> admin.handleErrors = False
+    >>> admin.addHeader("Authorization", "Basic mgr:mgrpw")
+
+    >>> list(component.getAdapters((root, None, None), IPersistentPageElement))
+    []
+
+Let's create persistent page element
+
+    >>> admin.open("http://localhost/settings/")
+    >>> admin.getLink('Page Elements').click()
+
+    >>> admin.open('http://localhost/settings/ui/pageelements/+/persistent.pageelement/')
+    >>> admin.getControl('Title').value = u'Test page element'
+    >>> admin.getControl('Source').value = """
+    ... <div>Test page element</div>
+    ... """
+    >>> admin.getControl('Content short name').value = 'test.page1'
+    >>> admin.getControl(name='content.add.buttons.add').click()
+    >>> print admin.contents
+    <html>
+    ...
+    <h1 class="z-content-title">Test page element</h1>
+    ...
+    &lt;div&gt;Test page element&lt;/div&gt;
+    ...
+    </html>
+
+    >>> list(component.getAdapters((root, None, None), IPersistentPageElement))
+    [(u'test.page1', <zojax.persistentpageelement.element.PageElement ...>)]
+
+    >>> admin.open('http://localhost/settings/ui/pageelements/test.page1/context.html/content/')
+    >>> admin.getControl('Title').value = u'Test element'
+    >>> admin.getControl('Short Name').value = u'test.page2'
+    >>> admin.getControl(name="content.edit.buttons.save").click()
+
+    >>> views = list(component.getAdapters((root, None, None), IPersistentPageElement))
+    >>> views
+    [(u'test.page2', <zojax.persistentpageelement.element.PageElement object at ...>)]
+
+Content provider
+
+    >>> from zope.contentprovider.interfaces import IContentProvider
+
+    >>> provider =component.getMultiAdapter(
+    ...     (root, None, None), IContentProvider, 'test.page2')
+    >>> provider
+    <zojax.persistentpageelement.element.PageElement object ...>
+    >>> provider.update()
+    >>> print provider.render()
+    <div>Test page element</div>
+
+Removing page
+
+    >>> admin.open('http://localhost/settings/ui/pageelements/')
+    >>> admin.getControl(name='ids:list').value = [u'test.page2']
+    >>> admin.getControl(name="form.buttons.delete").click()
+
+    >>> list(component.getAdapters((root, None, None), IPersistentPageElement))
+    []
+
+    >>> setSite(None)

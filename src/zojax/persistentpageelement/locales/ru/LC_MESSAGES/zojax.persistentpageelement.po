@@ -1,0 +1,71 @@
+##############################################################################
+#
+# Copyright (c) 2009 Zope Foundation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Tue Nov 18 21:15:27 2008\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Nikolay Kim <fafhrd91@gmail.com>\n"
+"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/persistentpageelement/browser/element.pt:3
+msgid "Compilation failed:"
+msgstr ""
+
+#: src/zojax/persistentpageelement/browser/elementadd.pt:4
+#: src/zojax/persistentpageelement/browser/elementadd.pt:8
+msgid "Add Page Element"
+msgstr "Добавить Page Element"
+
+#: src/zojax/persistentpageelement/configure.zcml:10
+msgid "Page Element"
+msgstr ""
+
+#: src/zojax/persistentpageelement/configure.zcml:31
+#: src/zojax/persistentpageelement/configure.zcml:40
+msgid "Page Elements"
+msgstr ""
+
+#: src/zojax/persistentpageelement/configure.zcml:40
+msgid "Portal page elements."
+msgstr ""
+
+#: src/zojax/persistentpageelement/interfaces.py:29
+msgid "Title"
+msgstr "Заголовок"
+
+#: src/zojax/persistentpageelement/interfaces.py:30
+msgid "Page element title"
+msgstr "Заголовок элемента страницы"
+
+#: src/zojax/persistentpageelement/interfaces.py:36
+msgid "Description"
+msgstr "Описание"
+
+#: src/zojax/persistentpageelement/interfaces.py:37
+msgid "Page element description"
+msgstr "Описание элемента страницы"
+
+#: src/zojax/persistentpageelement/interfaces.py:52
+msgid "Source"
+msgstr "Исходник"
+
+#: src/zojax/persistentpageelement/interfaces.py:53
+msgid "The source of the page element."
+msgstr "Исходный код элемента."
+
