@@ -1,0 +1,74 @@
+##############################################################################
+#
+# Copyright (c) 2003-2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Thu Dec  8 23:07:09 2011\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/persistentpageelement/browser/element.pt:3
+msgid "Compilation failed:"
+msgstr ""
+
+#: src/zojax/persistentpageelement/browser/element.py:68
+msgid "Back"
+msgstr ""
+
+#: src/zojax/persistentpageelement/configlet.py:27
+msgid "Page elements"
+msgstr ""
+
+#: src/zojax/persistentpageelement/configure.zcml:29
+#: src/zojax/persistentpageelement/configure.zcml:38
+msgid "Page Elements"
+msgstr ""
+
+#: src/zojax/persistentpageelement/configure.zcml:38
+msgid "Portal page elements."
+msgstr ""
+
+#: src/zojax/persistentpageelement/configure.zcml:8
+msgid "Page Element"
+msgstr ""
+
+#: src/zojax/persistentpageelement/interfaces.py:29
+msgid "Title"
+msgstr ""
+
+#: src/zojax/persistentpageelement/interfaces.py:30
+msgid "Page element title"
+msgstr ""
+
+#: src/zojax/persistentpageelement/interfaces.py:36
+msgid "Description"
+msgstr ""
+
+#: src/zojax/persistentpageelement/interfaces.py:37
+msgid "Page element description"
+msgstr ""
+
+#: src/zojax/persistentpageelement/interfaces.py:52
+msgid "Source"
+msgstr ""
+
+#: src/zojax/persistentpageelement/interfaces.py:53
+msgid "The source of the page element."
+msgstr ""
+
